@@ -1,0 +1,6 @@
+(define (deep-reverse tree)
+		(define (iter remain result)
+				(cond ((null? remain) result)
+					  ((pair? (car remain)) (iter (cdr remain) (cons (iter (car remain) '()) result)))
+					  (else (iter (cdr remain) (cons (car remain) result)))))
+		(iter tree '()))
