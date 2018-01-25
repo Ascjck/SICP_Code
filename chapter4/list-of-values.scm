@@ -1,0 +1,8 @@
+(load "first-operand.scm")
+(load "rest-operands.scm")
+(load "no-operands.scm")
+(define (list-of-values exps env)
+    (if (no-operands? exps)
+        '()
+        (cons (eval (first-operand exps) env)
+              (list-of-values (rest-operands exps) env))))
